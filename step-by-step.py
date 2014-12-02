@@ -26,6 +26,8 @@ soup = BeautifulSoup(page1)
 print(soup.prettify())
 print(soup.get_text())
 
+mydivs = soup.findAll("div", { "class" : "conDiv" })
+
 # To get the county - find <h2> tag
 h2 = soup.find_all("replacePDetail")
 h2 = soup.find_all("h2")
