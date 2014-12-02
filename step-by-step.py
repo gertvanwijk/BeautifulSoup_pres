@@ -10,22 +10,24 @@ import os
 import re
 
 # set working directory:
-os.chdir("/home/andrew/Dropbox/python/presentation/")
+os.chdir("/home/pi")
 
 #####  Open a website ##################
 
 # from the web:
-page1 = urllib2.urlopen("http://www.necliberia.org/results2011/pp_results/09006.html")
+http://www.campercontact.nl/campersite/detail/id/27878
+page1 = urllib2.urlopen("http://www.campercontact.nl/campersite/detail/id/27878")
 
 # stored locally:
 page2 = urllib2.urlopen("file:///home/andrew/Liberia/data/pp_1/03002.html")
 
-soup = BeautifulSoup(page2)
+soup = BeautifulSoup(page1)
 
 print(soup.prettify())
 print(soup.get_text())
 
 # To get the county - find <h2> tag
+h2 = soup.find_all("replacePDetail")
 h2 = soup.find_all("h2")
 county = str(h2[0].get_text())
 print county
@@ -38,7 +40,8 @@ print precinct
 
 ## Now let's get the election results
 
-res = soup.findAll('div', {'class': 'res'})
+
+
 len(res) # so there are 3 results tables.
 
 # the first results are the presidential/VP:
