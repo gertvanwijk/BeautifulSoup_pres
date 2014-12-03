@@ -28,6 +28,13 @@ print(soup.get_text())
 
 mydivs = soup.findAll("div", { "class" : "conDiv" })
 
+results = []
+for div in divs:
+  s = div.findAll("span", {"class":"SType"})[0].text
+  d = div.findAll("span", {"class":"Amount"})[0].text     dit werkt al een beetje
+  results.append( [s, d] ) 
+  
+
 # To get the county - find <h2> tag
 h2 = soup.find_all("replacePDetail")
 h2 = soup.find_all("h2")
