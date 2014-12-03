@@ -15,20 +15,18 @@ os.chdir("/home/pi")
 #####  Open a website ##################
 
 # from the web:
-http://www.campercontact.nl/campersite/detail/id/27878
 page1 = urllib2.urlopen("http://www.campercontact.nl/campersite/detail/id/27878")
 
-# stored locally:
-page2 = urllib2.urlopen("file:///home/andrew/Liberia/data/pp_1/03002.html")
-
 soup = BeautifulSoup(page1)
-
 print(soup.prettify())
 print(soup.get_text())
 
 s = soup.findAll("div", { "class" : "conDiv" })[0].text
 soup.findAll(text=True)
 
+
+
+=================================================================================================================================
 results = []
 for div in s:
   s = soup.findAll("div", { "class" : "conDiv" })[0].text
